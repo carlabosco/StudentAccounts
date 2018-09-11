@@ -1,0 +1,27 @@
+names = Array.new()
+studentIDs = Array.new()
+emails = Array.new()
+student = Array.new()
+
+5.times do
+  puts "Enter your first name"
+  firstName =  gets.chomp.upcase
+
+  puts "Enter your last name"
+  lastName = gets.chomp.upcase
+  newName = firstName + " " + lastName
+  names << newName
+  #student << newName + " "
+
+  randomID = rand(111111..999999).to_s
+  studentIDs << randomID
+  #student << randomID + " "
+
+  emailInit = firstName[0] + lastName
+  emailAddress = emailInit + randomID[3..6] + "@adadevelopersacademy.org"
+  emails << emailAddress
+
+  student << newName + " " + randomID + " " + emailAddress + "\n\n"
+end
+
+puts student
