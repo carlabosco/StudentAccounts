@@ -1,7 +1,5 @@
-names = Array.new()
-studentIDs = Array.new()
-emails = Array.new()
-student = Array.new()
+students = Array.new()
+student = Hash.new()
 
 5.times do
   puts "Enter your first name"
@@ -9,19 +7,15 @@ student = Array.new()
 
   puts "Enter your last name"
   lastName = gets.chomp.upcase
-  newName = firstName + " " + lastName
-  names << newName
+  student["Name"] = firstName + " " + lastName
   #student << newName + " "
 
-  randomID = rand(111111..999999).to_s
-  studentIDs << randomID
-  #student << randomID + " "
+  student["ID"] = rand(111111..999999).to_s
 
   emailInit = firstName[0] + lastName
-  emailAddress = emailInit + randomID[3..6] + "@adadevelopersacademy.org"
-  emails << emailAddress
+  student["Email Address"] = emailInit + student["ID"][3..6] + "@adadevelopersacademy.org"
 
-  student << newName + " " + randomID + " " + emailAddress + "\n\n"
+  students << student["Name"] + " " + student["ID"] + " " + student["Email Address"]
 end
 
-puts student
+puts students
